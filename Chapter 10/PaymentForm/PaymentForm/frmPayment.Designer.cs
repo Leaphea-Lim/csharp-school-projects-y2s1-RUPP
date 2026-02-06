@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.grpPayment = new System.Windows.Forms.GroupBox();
-            this.radCreditCard = new System.Windows.Forms.RadioButton();
-            this.radBillCustomer = new System.Windows.Forms.RadioButton();
+            this.rdoCreditCard = new System.Windows.Forms.RadioButton();
+            this.rdoBillCustomer = new System.Windows.Forms.RadioButton();
             this.lb_crctype = new System.Windows.Forms.Label();
             this.lblCardNumber = new System.Windows.Forms.Label();
             this.lblExpirationDate = new System.Windows.Forms.Label();
             this.txtCardNumber = new System.Windows.Forms.TextBox();
-            this.cboCardType = new System.Windows.Forms.ComboBox();
+            this.lstCreditCardType = new System.Windows.Forms.ComboBox();
             this.cboMonth = new System.Windows.Forms.ComboBox();
             this.cboYear = new System.Windows.Forms.ComboBox();
-            this.chkDefaultBilling = new System.Windows.Forms.CheckBox();
+            this.chkDefault = new System.Windows.Forms.CheckBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.grpPayment.SuspendLayout();
@@ -46,8 +46,8 @@
             // 
             // grpPayment
             // 
-            this.grpPayment.Controls.Add(this.radCreditCard);
-            this.grpPayment.Controls.Add(this.radBillCustomer);
+            this.grpPayment.Controls.Add(this.rdoCreditCard);
+            this.grpPayment.Controls.Add(this.rdoBillCustomer);
             this.grpPayment.Location = new System.Drawing.Point(30, 30);
             this.grpPayment.Name = "grpPayment";
             this.grpPayment.Size = new System.Drawing.Size(450, 70);
@@ -55,28 +55,29 @@
             this.grpPayment.TabStop = false;
             this.grpPayment.Text = "Billing";
             // 
-            // radCreditCard
+            // rdoCreditCard
             // 
-            this.radCreditCard.AutoSize = true;
-            this.radCreditCard.Checked = true;
-            this.radCreditCard.Location = new System.Drawing.Point(20, 30);
-            this.radCreditCard.Name = "radCreditCard";
-            this.radCreditCard.Size = new System.Drawing.Size(111, 24);
-            this.radCreditCard.TabIndex = 0;
-            this.radCreditCard.TabStop = true;
-            this.radCreditCard.Text = "Credit card";
-            this.radCreditCard.UseVisualStyleBackColor = true;
-            this.radCreditCard.CheckedChanged += new System.EventHandler(this.radCreditCard_CheckedChanged);
+            this.rdoCreditCard.AutoSize = true;
+            this.rdoCreditCard.Checked = true;
+            this.rdoCreditCard.Location = new System.Drawing.Point(20, 30);
+            this.rdoCreditCard.Name = "rdoCreditCard";
+            this.rdoCreditCard.Size = new System.Drawing.Size(111, 24);
+            this.rdoCreditCard.TabIndex = 0;
+            this.rdoCreditCard.TabStop = true;
+            this.rdoCreditCard.Text = "Credit card";
+            this.rdoCreditCard.UseVisualStyleBackColor = true;
+            this.rdoCreditCard.CheckedChanged += new System.EventHandler(this.radCreditCard_CheckedChanged);
             // 
-            // radBillCustomer
+            // rdoBillCustomer
             // 
-            this.radBillCustomer.AutoSize = true;
-            this.radBillCustomer.Location = new System.Drawing.Point(250, 30);
-            this.radBillCustomer.Name = "radBillCustomer";
-            this.radBillCustomer.Size = new System.Drawing.Size(124, 24);
-            this.radBillCustomer.TabIndex = 1;
-            this.radBillCustomer.Text = "Bill customer";
-            this.radBillCustomer.UseVisualStyleBackColor = true;
+            this.rdoBillCustomer.AutoSize = true;
+            this.rdoBillCustomer.Location = new System.Drawing.Point(250, 30);
+            this.rdoBillCustomer.Name = "rdoBillCustomer";
+            this.rdoBillCustomer.Size = new System.Drawing.Size(124, 24);
+            this.rdoBillCustomer.TabIndex = 1;
+            this.rdoBillCustomer.Text = "Bill customer";
+            this.rdoBillCustomer.UseVisualStyleBackColor = true;
+            this.rdoBillCustomer.CheckedChanged += new System.EventHandler(this.radBillCustomer_CheckedChanged);
             // 
             // lb_crctype
             // 
@@ -113,18 +114,18 @@
             this.txtCardNumber.Size = new System.Drawing.Size(290, 26);
             this.txtCardNumber.TabIndex = 4;
             // 
-            // cboCardType
+            // lstCreditCardType
             // 
-            this.cboCardType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCardType.FormattingEnabled = true;
-            this.cboCardType.Items.AddRange(new object[] {
+            this.lstCreditCardType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.lstCreditCardType.FormattingEnabled = true;
+            this.lstCreditCardType.Items.AddRange(new object[] {
             "Visa",
             "Mastercard",
             "American Express"});
-            this.cboCardType.Location = new System.Drawing.Point(190, 117);
-            this.cboCardType.Name = "cboCardType";
-            this.cboCardType.Size = new System.Drawing.Size(290, 28);
-            this.cboCardType.TabIndex = 5;
+            this.lstCreditCardType.Location = new System.Drawing.Point(190, 117);
+            this.lstCreditCardType.Name = "lstCreditCardType";
+            this.lstCreditCardType.Size = new System.Drawing.Size(290, 28);
+            this.lstCreditCardType.TabIndex = 5;
             // 
             // cboMonth
             // 
@@ -144,17 +145,17 @@
             this.cboYear.Size = new System.Drawing.Size(135, 28);
             this.cboYear.TabIndex = 7;
             // 
-            // chkDefaultBilling
+            // chkDefault
             // 
-            this.chkDefaultBilling.AutoSize = true;
-            this.chkDefaultBilling.Checked = true;
-            this.chkDefaultBilling.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkDefaultBilling.Location = new System.Drawing.Point(50, 270);
-            this.chkDefaultBilling.Name = "chkDefaultBilling";
-            this.chkDefaultBilling.Size = new System.Drawing.Size(235, 24);
-            this.chkDefaultBilling.TabIndex = 8;
-            this.chkDefaultBilling.Text = "Set as default billing method";
-            this.chkDefaultBilling.UseVisualStyleBackColor = true;
+            this.chkDefault.AutoSize = true;
+            this.chkDefault.Checked = true;
+            this.chkDefault.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDefault.Location = new System.Drawing.Point(50, 270);
+            this.chkDefault.Name = "chkDefault";
+            this.chkDefault.Size = new System.Drawing.Size(235, 24);
+            this.chkDefault.TabIndex = 8;
+            this.chkDefault.Text = "Set as default billing method";
+            this.chkDefault.UseVisualStyleBackColor = true;
             // 
             // btnOK
             // 
@@ -187,10 +188,10 @@
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.chkDefaultBilling);
+            this.Controls.Add(this.chkDefault);
             this.Controls.Add(this.cboYear);
             this.Controls.Add(this.cboMonth);
-            this.Controls.Add(this.cboCardType);
+            this.Controls.Add(this.lstCreditCardType);
             this.Controls.Add(this.txtCardNumber);
             this.Controls.Add(this.lblExpirationDate);
             this.Controls.Add(this.lblCardNumber);
@@ -212,16 +213,16 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpPayment;
-        private System.Windows.Forms.RadioButton radCreditCard;
-        private System.Windows.Forms.RadioButton radBillCustomer;
+        private System.Windows.Forms.RadioButton rdoCreditCard;
+        private System.Windows.Forms.RadioButton rdoBillCustomer;
         private System.Windows.Forms.Label lb_crctype;
         private System.Windows.Forms.Label lblCardNumber;
         private System.Windows.Forms.Label lblExpirationDate;
         private System.Windows.Forms.TextBox txtCardNumber;
-        private System.Windows.Forms.ComboBox cboCardType;
+        private System.Windows.Forms.ComboBox lstCreditCardType;
         private System.Windows.Forms.ComboBox cboMonth;
         private System.Windows.Forms.ComboBox cboYear;
-        private System.Windows.Forms.CheckBox chkDefaultBilling;
+        private System.Windows.Forms.CheckBox chkDefault;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
     }

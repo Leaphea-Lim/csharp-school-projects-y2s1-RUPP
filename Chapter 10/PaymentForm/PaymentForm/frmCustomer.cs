@@ -68,29 +68,26 @@ namespace PaymentForm
         private void SaveData()
         {
             // Get the current customer name
-            string customerName = cboCustomerName.Text.Trim();
+            //string customerName = cboCustomerName.Text.Trim();
 
             // Check if this name is not already in the list
             // Add it to the dropdown for future selections
-            if (!cboCustomerName.Items.Contains(customerName))
-            {
-                cboCustomerName.Items.Add(customerName);
-            }
+            //if (!cboCustomerName.Items.Contains(customerName))
+            //{
+            //    cboCustomerName.Items.Add(customerName);
+            //}
 
             // Show success message to user
-            MessageBox.Show("Customer data saved successfully!", "Success",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Customer data saved successfully!", "Success",
+            //    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Clear all form fields after saving
+            //cboCustomerName.Text = ""; // Clear text
+
             cboCustomerName.SelectedIndex = -1; // Clear selection
-            cboCustomerName.Text = ""; // Clear text
             lblPayment.Text = "";
-
-            // Mark data as saved
-            isDataSaved = true;
-
-            // Return focus to customer name field for next entry
-            cboCustomerName.Focus();
+            isDataSaved = true;   // Mark data as saved
+            cboCustomerName.Focus(); // Return focus to customer name field for next entry
         }
 
         // Validates all required fields before saving
@@ -98,7 +95,8 @@ namespace PaymentForm
         private bool IsValidData()
         {
             // Check if customer name is empty
-            if (cboCustomerName.Text.Trim() == "")
+            //if (cboCustomerName.Text.Trim() == "")
+            if (cboCustomerName.SelectedIndex == -1)
             {
                 MessageBox.Show("You must enter a customer name.", "Entry Error");
                 cboCustomerName.Focus(); // Move cursor to the empty field
@@ -159,6 +157,11 @@ namespace PaymentForm
 
                 // If user chose No, form will close without saving
             }
+        }
+
+        private void cboCustomerName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

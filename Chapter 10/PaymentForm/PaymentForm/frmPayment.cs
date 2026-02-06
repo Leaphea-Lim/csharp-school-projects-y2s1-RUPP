@@ -17,8 +17,14 @@ namespace PaymentForm
         {
             // Load credit card types - already defined in designer
             // Set default selection to first item (Visa)
-            if (cboCardType.Items.Count > 0)
-                cboCardType.SelectedIndex = 0;
+
+            //if (lstCreditCardType.Items.Count > 0)
+            //    lstCreditCardType.SelectedIndex = 0;
+
+            lstCreditCardType.Items.Add("Visa");
+            lstCreditCardType.Items.Add("Mastercard");
+            lstCreditCardType.Items.Add("American Express");
+            lstCreditCardType.SelectedIndex = 0;
 
             // Load months with "Select a month..." as first option
             cboMonth.Items.Clear(); // Clear any existing items
@@ -65,16 +71,16 @@ namespace PaymentForm
         private bool IsValidData()
         {
             // Only validate credit card fields if Credit Card is selected
-            if (radCreditCard.Checked)
+            if (rdoCreditCard.Checked)
             {
                 // Check if credit card type is selected
                 // SelectedIndex = -1 means no selection
-                if (cboCardType.SelectedIndex == -1)
+                if (lstCreditCardType.SelectedIndex == -1)
                 {
                     MessageBox.Show(
                         "You must select a credit card type.",
                         "Entry Error");
-                    cboCardType.Focus(); // Move cursor to the field
+                    lstCreditCardType.Focus(); // Move cursor to the field
                     return false;
                 }
 
@@ -119,12 +125,12 @@ namespace PaymentForm
             string msg = null;
 
             // Build message based on selected payment method
-            if (radCreditCard.Checked == true)
+            if (rdoCreditCard.Checked == true)
             {
                 // Format credit card payment information
                 msg += "Charge to credit card." + "\n";
                 msg += "\n";
-                msg += "Card type: " + cboCardType.Text + "\n";
+                msg += "Card type: " + lstCreditCardType.Text + "\n";
                 msg += "Card number: " + txtCardNumber.Text + "\n";
                 msg += "Expiration date: "
                     + cboMonth.Text + "/"
@@ -138,7 +144,7 @@ namespace PaymentForm
             }
 
             // Add default billing status to message
-            bool isDefaultBilling = chkDefaultBilling.Checked;
+            bool isDefaultBilling = chkDefault.Checked;
             msg += "Default billing: " + isDefaultBilling;
 
             // Store formatted message in Tag property
@@ -154,7 +160,7 @@ namespace PaymentForm
         private void radCreditCard_CheckedChanged(object sender, EventArgs e)
         {
             // Enable credit card fields if Credit Card is selected
-            if (radCreditCard.Checked)
+            if (rdoCreditCard.Checked)
                 EnableControls();
             else
                 // Disable credit card fields if Bill Customer is selected
@@ -165,7 +171,7 @@ namespace PaymentForm
         // Called when Credit Card radio button is selected
         private void EnableControls()
         {
-            cboCardType.Enabled = true;
+            lstCreditCardType.Enabled = true;
             txtCardNumber.Enabled = true;
             cboMonth.Enabled = true;
             cboYear.Enabled = true;
@@ -175,7 +181,7 @@ namespace PaymentForm
         // Called when Bill Customer radio button is selected
         private void DisableControls()
         {
-            cboCardType.Enabled = false;
+            lstCreditCardType.Enabled = false;
             txtCardNumber.Enabled = false;
             cboMonth.Enabled = false;
             cboYear.Enabled = false;
@@ -188,5 +194,6 @@ namespace PaymentForm
             // Set DialogResult to Cancel - closes form and returns Cancel to caller
             this.DialogResult = DialogResult.Cancel;
         }
+
     }
 }

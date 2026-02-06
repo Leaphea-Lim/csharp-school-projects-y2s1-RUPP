@@ -78,6 +78,7 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
             this.btnExit.Location = new System.Drawing.Point(462, 421);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -101,11 +102,13 @@
             // 
             // cboCustomerName
             // 
+            this.cboCustomerName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCustomerName.FormattingEnabled = true;
             this.cboCustomerName.Location = new System.Drawing.Point(251, 46);
             this.cboCustomerName.Name = "cboCustomerName";
             this.cboCustomerName.Size = new System.Drawing.Size(302, 28);
             this.cboCustomerName.TabIndex = 8;
+            this.cboCustomerName.SelectedIndexChanged += new System.EventHandler(this.cboCustomerName_SelectedIndexChanged);
             this.cboCustomerName.TextChanged += new System.EventHandler(this.DataChanged);
             // 
             // frmCustomer
@@ -124,8 +127,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCustomer";
             this.Text = "Customer";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCustomer_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
